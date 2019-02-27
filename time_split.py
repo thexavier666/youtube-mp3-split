@@ -26,14 +26,14 @@ def make_songs(main_song_file, start_time, end_time, song_track_id, song_name, s
 			"-ss %s "
 			"-to %s \"%s.mp3\"") % (main_song_file, song_name, song_artist, song_album, meta_track_id, start_time, end_time, song_file_name)
 
-	print str_cmd
+	print (str_cmd)
 
 	sp.call(str_cmd, shell = True)
 
 def main():
 
 	if len(sys.argv) < 4:
-		print "Arguments are \"song details\", \"big .mp3 file\", \"album artist\", \"album name\""
+		print ("Arguments are \"song details\", \"big .mp3 file\", \"album artist\", \"album name\"")
 		return 1
 
 	song_details  = sys.argv[1]
@@ -47,7 +47,7 @@ def main():
 	song_list = []
 
 	# getting the details of the 1st song
-	first_song_details = fp.next()
+	first_song_details = fp.__next__()
 
 	time_start = get_time(first_song_details)
 	song_name = first_song_details[1]
