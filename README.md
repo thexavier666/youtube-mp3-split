@@ -3,7 +3,7 @@ Split large mixtapes from Youtube by their timestamps
 
 ## Prerequisite
 
-1. Python 2.7
+1. Python 3.6
 2. FFMPEG
 3. youtube-dl (Optional)
 
