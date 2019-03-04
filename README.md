@@ -17,7 +17,11 @@ The best way to use it would be to use the following sample
 
 2. Remove the spaces of the downloaded file. This can be easily fixed. Say the new name of the downloaded file is `big_file.mp3`
 3. Copy the time stamp details from the "Details" section of the video or from the comments
-4. **CRUCIAL PART** - Create a time stamp file in a `.csv` file format with separator as `|`. I have supplied a sample time stamp file for the above URL. The name of the file is `song_list`. Make sure to create a NULL row as shown in the sample file. The NULL row denotes when the song ends. If you don't create this row, the last song won't be created.
+4. **CRUCIAL PART**
+	* Create a time stamp file in a `.csv` file format with separator as `|`
+	* I have supplied a sample time stamp file for the above URL. The name of the file is `song_list`
+	* Make sure to create a NULL row as shown in the sample file. The NULL row denotes when the song ends. 
+	* If you don't create this row, the last song won't be created.
 5. Move `big_file.mp3` and `time_split.py` in `sample_run`
 6. Use my script
 
