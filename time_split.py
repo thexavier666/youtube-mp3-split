@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import sys
 import csv
 import subprocess as sp
