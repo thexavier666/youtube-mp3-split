@@ -49,7 +49,7 @@ def main():
     song_list = []
 
     # getting the details of the 1st song
-    first_song_details = fp.__next__()
+    first_song_details = next(fp)
 
     time_start = get_time(first_song_details)
     song_name = first_song_details[1]
