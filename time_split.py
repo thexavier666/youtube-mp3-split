@@ -34,14 +34,13 @@ def make_songs(main_song_file, start_time, end_time, song_track_id, song_name, s
 def main():
 
     if len(sys.argv) < 4:
-        print ("Arguments are \"song details\", \"big .mp3 file\", \"album artist\", \"album name\", \"mixtape/album\"")
+        print ("Arguments are \"song details\", \"big .mp3 file\", \"album artist\", \"album name\"")
         return -1
 
     song_details  = sys.argv[1]
     main_mp3_file = sys.argv[2]
     album_artist  = sys.argv[3]
     album_name    = sys.argv[4]
-    song_type     = sys.argv[5]
 
     # opening the CSV file
     fp = csv.reader(open(song_details, 'r'), delimiter='|')
@@ -80,13 +79,7 @@ def main():
 
     # creating all the songs
     for row in song_list:
-        if song_type == "mixtape":
-            make_songs(main_mp3_file, row[0], row[1], row[2], row[3], album_artist, album_name)
-        elif song_type == "album":
-            make_songs(main_mp3_file, row[0], row[1], row[2], row[3], row[4], row[5])
-        else:
-            print("[ERROR] Incorrect arguments!")
-            return -1
+        make_songs(main_mp3_file, row[0], row[1], row[2], row[3], album_artist, album_name)
 
         print("[INFO] Song name {} created".format(row[3]))
 
