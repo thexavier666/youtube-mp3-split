@@ -20,8 +20,6 @@ The best way to use it would be to use the following sample
 4. **CRUCIAL PART**
 	* Create a time stamp file in a `.csv` file format with separator as `|`
 	* I have supplied a sample time stamp file for the above URL. The name of the file is `song_list.csv`
-	* Make sure to create a NULL row as shown in the sample file. The NULL row denotes when the song ends.
-	* If you don't create this row, the last song won't be created.
 5. Use the following command
 
 	`python3 time_split.py song_list.csv big_file.mp3 "Marvel83" "Back To The 80s - Best of Synthwave And Retro Electro Music Mix"`
