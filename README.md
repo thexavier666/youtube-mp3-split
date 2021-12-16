@@ -22,11 +22,11 @@ The best way to use it would be to use the following sample
 	* I have supplied a sample time stamp file for the above URL. The name of the file is `song_list.csv`
 5. Use the following command
 
-	`python3 time_split.py song_list.csv big_file.mp3 "Marvel83" "Back To The 80s - Best of Synthwave And Retro Electro Music Mix"`
+	`python3 time_split.py song_list.csv big_file.mp3`
 
 6. All `.mp3`s will be generated in the current directory
 
-PS: If your song does not have a singular artist or the songs belong to different albums, then put empty arguments inside double quotes.
+PS: If you want your song to include the artist and/or album name, use the arguments -aa and -al respectively after the above.
 
 ## Disclaimer
 
