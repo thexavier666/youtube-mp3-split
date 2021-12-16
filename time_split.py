@@ -59,17 +59,48 @@ def make_songs(main_song_file, start_time, end_time, song_track_id, song_name, s
             "-to %s \"%s.mp3\"") % (main_song_file, song_name, song_artist, song_album, meta_track_id, start_time, end_time, song_file_name)
 
     sp.call(str_cmd, shell = True)
-
+def processDoubleDash():
+    for arg in sys.argv:
+        if "--" in arg:
+            if arg == "--help":
+                print ("Arguments are \"song details\", \"big .mp3 file\"")
+                exit(0)
+def processDash():
+    #processes required data
+    termsToValues = None
+    try:
+        termsToValues = {"Song Details":sys.argv[1], "MP3":sys.argv[2]}
+    except IndexError:
+        print("Use necessary positional arguments song details and mp3 file")
+        exit(-2)
+    #processes optional data
+    index = 0
+    skipNext = False
+    try:
+        for i in range(3, len(sys.argv)):
+            index = i
+            if skipNext:
+                skipNext = False
+                continue
+            if "-" is sys.argv[i][0]:
+                if sys.argv[i] == "-aa":
+                    termsToValues["Author Name"] = sys.argv[i+1]
+                    skipNext = True
+                elif sys.argv[i] == "-al":
+                    termsToValues["Album Name"] = sys.argv[i+1]
+                    skipNext = True
+                        
+    except IndexError:
+        print("Supply correct argument for {}".format(sys.argv[index]))
+        exit(-2)
+    return termsToValues
 def main():
-
-    if len(sys.argv) < 4:
-        print ("Arguments are \"song details\", \"big .mp3 file\", \"album artist\", \"album name\"")
-        return -1
-
-    song_details  = sys.argv[1]
-    main_mp3_file = sys.argv[2]
-    album_artist  = sys.argv[3]
-    album_name    = sys.argv[4]
+    processDoubleDash()
+    arguments = processDash()
+    song_details = arguments["Song Details"]
+    main_mp3_file = arguments["MP3"]
+    album_artist  = arguments.get("Author Name", "")
+    album_name    = arguments.get("Album Name", "")
 
     # opening the CSV file
     fp = csv.reader(open(song_details, 'r'), delimiter='|')
